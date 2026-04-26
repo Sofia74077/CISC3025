@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project #3 NER Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>Named Entity Recognition Demo</h1>
+    <p class="sub">CISC3025 Project #3 - MEMM model</p>
+
+    <form method="post" action="{{ url_for('predict') }}" class="card">
+      <label for="sentence">Input sentence</label>
+      <textarea id="sentence" name="sentence" rows="4" placeholder="e.g. Barack Obama visited Paris.">{{ sentence or "" }}</textarea>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if error %}
+      <section class="card error">{{ error }}</section>
+    {% endif %}
+
+    {% if token_rows %}
+      <section class="card">
+        <h2>Token-level prediction</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Label</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for token, label in token_rows %}
+              <tr>
+                <td>{{ token }}</td>
+                <td><span class="tag">{{ label }}</span></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Extracted entities</h2>
+        {% if entities %}
+          <ul>
+            {% for entity_type, entity_text in entities %}
+              <li><strong>{{ entity_type }}</strong>: {{ entity_text }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No named entities found.</p>
+        {% endif %}
+      </section>
+    {% endif %}
+  </main>
+</body>
+</html>
