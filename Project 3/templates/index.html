@@ -53,6 +53,33 @@
         </table>
       </section>
 
+      {% if textcls_enabled and textcls_result %}
+      <section class="card">
+        <h2>Text Classification</h2>
+        <p>
+          Predicted category:
+          <span class="tag">{{ textcls_result.label }}</span>
+          (confidence: {{ "%.1f"|format(textcls_result.confidence * 100) }}%)
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Probability</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in textcls_result.ranked %}
+            <tr>
+              <td>{{ item.label }}</td>
+              <td>{{ "%.2f"|format(item.prob * 100) }}%</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+      {% endif %}
+
       <section class="card">
         <h2>Extracted entities</h2>
         {% if entities %}
