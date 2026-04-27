@@ -4,32 +4,88 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6fb;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #eef2ff 0%, #f7f9ff 35%, #f5f7fb 100%);
   color: #1b1f2a;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 940px;
   margin: 36px auto;
   padding: 0 16px;
 }
 
 h1 {
-  margin-bottom: 8px;
+  margin: 8px 0 8px;
+  font-size: 32px;
 }
 
 .sub {
-  margin-top: 0;
-  color: #4a5267;
+  margin: 0;
+  color: #4f5b77;
+  font-size: 16px;
 }
 
 .card {
   background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e7ebf6;
+  padding: 18px;
+  margin: 16px 0;
+  box-shadow: 0 8px 20px rgba(31, 48, 103, 0.08);
+}
+
+.hero {
+  background: linear-gradient(135deg, #1f49c8 0%, #2052d6 45%, #4c7dff 100%);
+  color: #fff;
+}
+
+.hero .sub {
+  color: #dce7ff;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.4px;
+}
+
+.team-card h2 {
+  margin-top: 0;
+}
+
+.team-list {
+  display: grid;
+  gap: 10px;
+}
+
+.member {
+  margin: 0;
+  padding: 12px 14px;
   border-radius: 10px;
-  padding: 16px;
-  margin: 14px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dce4f8;
+  background: #f8faff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.member-name {
+  font-weight: 700;
+}
+
+.member-id {
+  font-size: 13px;
+  color: #2052d6;
+  background: #e8efff;
+  padding: 3px 9px;
+  border-radius: 999px;
 }
 
 label {
@@ -40,11 +96,11 @@ label {
 
 textarea {
   width: 100%;
-  border: 1px solid #d0d6e2;
+  border: 1px solid #cfd7eb;
   border-radius: 8px;
-  padding: 10px;
+  padding: 12px;
   resize: vertical;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 button {
@@ -53,13 +109,16 @@ button {
   background: #2052d6;
   color: #fff;
   border-radius: 8px;
-  padding: 10px 14px;
+  padding: 10px 16px;
   cursor: pointer;
   font-weight: 700;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
 
 button:hover {
   background: #173fa8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(32, 82, 214, 0.25);
 }
 
 table {
@@ -71,7 +130,14 @@ th,
 td {
   border-bottom: 1px solid #eef1f6;
   text-align: left;
-  padding: 8px;
+  padding: 10px 8px;
+}
+
+th {
+  font-size: 13px;
+  color: #4f5b77;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .tag {
@@ -82,7 +148,23 @@ td {
   font-size: 12px;
 }
 
+.entity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.entity-list li {
+  padding: 10px 12px;
+  border: 1px solid #e6ecfb;
+  background: #fafcff;
+  border-radius: 10px;
+}
+
 .error {
   color: #8a1f1f;
   background: #ffe8e8;
+  border-color: #f8cfcf;
 }
