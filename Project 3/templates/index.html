@@ -8,12 +8,18 @@
 </head>
 <body>
   <main class="container">
-    <h1>Named Entity Recognition Demo</h1>
-    <p class="sub">CISC3025 Project #3 - MEMM model</p>
-    <section class="card">
+    <section class="hero card">
+      <p class="badge">CISC3025 Project #3</p>
+      <h1>Named Entity Recognition Demo</h1>
+      <p class="sub">Maximum Entropy Markov Model (MEMM)</p>
+    </section>
+
+    <section class="card team-card">
       <h2>Group 9</h2>
-      <p>FAN ZOU CHEN (DC326351)</p>
-      <p>HUANG SOFIA (DC326312)</p>
+      <div class="team-list">
+        <p class="member"><span class="member-name">FAN ZOU CHEN</span><span class="member-id">DC326351</span></p>
+        <p class="member"><span class="member-name">HUANG SOFIA</span><span class="member-id">DC326312</span></p>
+      </div>
     </section>
 
     <form method="post" action="{{ url_for('predict') }}" class="card">
@@ -50,9 +56,9 @@
       <section class="card">
         <h2>Extracted entities</h2>
         {% if entities %}
-          <ul>
+          <ul class="entity-list">
             {% for entity_type, entity_text in entities %}
-              <li><strong>{{ entity_type }}</strong>: {{ entity_text }}</li>
+              <li><span class="tag">{{ entity_type }}</span> {{ entity_text }}</li>
             {% endfor %}
           </ul>
         {% else %}
